@@ -3,6 +3,11 @@ name: docker login, gradle build and docker push
 on:
   workflow_call:
     inputs:
+      project_dir:
+        description: 'project dir with gradle file. current directory being default'
+        required: false
+        default: '.'
+        type: string
       docker_registry:
         description: 'The docker registry to use for docker login'
         required: false
