@@ -72,7 +72,7 @@ jobs:
             IFS=',' read -r -a commands <<< "${DOCKER_COMPOSE_COMMANDS}"
             for command in "${commands[@]}"
             do
-            echo "performing: docker-compose -f "${DOCKER_COMPOSE_DIR}/${DOCKER_COMPOSE_FILE} $command""
+            echo "performing docker-compose wirh arugments: $command"
             # run all docker-compose commands one by one
-            docker-compose -f "${DOCKER_COMPOSE_DIR}/${DOCKER_COMPOSE_FILE}" "$command"
+            sh -c "docker-compose -f \"${DOCKER_COMPOSE_DIR}/${DOCKER_COMPOSE_FILE}\" $command"
             done
