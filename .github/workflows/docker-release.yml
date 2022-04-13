@@ -68,5 +68,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            github_user=${{ inputs.docker_user }} 
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.docker_password }}
