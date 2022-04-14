@@ -47,6 +47,8 @@ jobs:
         run: |
           cd "${{ inputs.project_dir }}"
           ./gradlew build --stacktrace
+        env:
+          GITHUB_TOKEN: ${{ secrets.docker_password }}
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
